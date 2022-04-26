@@ -1,4 +1,4 @@
-import Converters.EuroRealConverter;
+import Converters.EuroConverter;
 import Rates.*;
 
 public class Main {
@@ -12,25 +12,25 @@ public class Main {
         System.out.println();
 
         //create Converters.EuroRealConverter
-        EuroRealConverter euroRealConverter = new EuroRealConverter();
+        EuroConverter euroConverter = new EuroConverter();
 
-        //inject converter for 28/03 rates
-        euroRealConverter.setDailyRate(new Mar28Rate());
-        euroRealConverter.getRealPrices(shoe);
-        euroRealConverter.getRealPrices(tShirt);
+        //inject converter BRL_Rate
+        euroConverter.setExchangeRate(new BRL_Rate());
+        euroConverter.getConvertedPrices(shoe);
+        euroConverter.getConvertedPrices(tShirt);
         System.out.println();
 
-        //inject converter for 30/03 rates
-        euroRealConverter.setDailyRate(new Mar30Rate());
-        euroRealConverter.getRealPrices(shoe);
-        euroRealConverter.getRealPrices(tShirt);
+        //inject converter for USD_Rate
+        euroConverter.setExchangeRate(new USD_Rate());
+        euroConverter.getConvertedPrices(shoe);
+        euroConverter.getConvertedPrices(tShirt);
         System.out.println();
 
 
-        //inject converter for 01/04 rates
-        euroRealConverter.setDailyRate(new Apr01Rate());
-        euroRealConverter.getRealPrices(shoe);
-        euroRealConverter.getRealPrices(tShirt);
+        //inject converter for GBP_Rate
+        euroConverter.setExchangeRate(new GBP_Rate());
+        euroConverter.getConvertedPrices(shoe);
+        euroConverter.getConvertedPrices(tShirt);
 
     }
 }
